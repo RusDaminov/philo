@@ -83,7 +83,7 @@ void	*ft_should_philo_die(void *tmp)
 	}
 }
 
-int	main(int argc, char **argv)
+int	main(int ac, char **av)
 {
 	t_args		s_options;
 	t_philos	*philos;
@@ -91,9 +91,9 @@ int	main(int argc, char **argv)
 	int			i;
 
 	i = 0;
-	if (ft_validation(argc, argv) == 0)
+	if (ft_validation(ac, av) == 0)
 		return (0);
-	if (ft_structure_init(&s_options, argc, argv) == 0)
+	if (ft_structure_init(&s_options, ac, av) == 0)
 		return (0);
 	philos = malloc(s_options.philo_number * sizeof(t_philos));
 	threads = malloc((s_options.philo_number + 1) * sizeof(pthread_t));
@@ -101,6 +101,6 @@ int	main(int argc, char **argv)
 	pthread_create(&threads[i], NULL, &ft_should_philo_die, (void *)(philos));
 	ft_join_clean(&s_options, philos, threads);
 	if (s_options.total_eat == s_options.philo_number)
-		printf(GRN"[ All the philosophers ate ]\n");
+		printf(GRN"[ All the philosophers are ate ]\n");
 	return (0);
 }

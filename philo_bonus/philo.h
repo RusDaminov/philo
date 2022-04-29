@@ -61,14 +61,15 @@ typedef struct s_all
 	t_philo			philo[250];
 }					t_all;
 
+// message.c
 void		action_print(t_all *all, int id, char *str);
 int			error_message(char *str);
 int			error_manager(int error);
-
+//init.c
 int			init_all(t_all *all, char **av);
-
+//simulation.c
 int			launcher(t_all *all);
-
+//utils.c
 int			ft_atoi(const char *str);
 long long	timestamp(void);
 void		smart_sleep(long long time, t_all *all);

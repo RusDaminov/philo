@@ -60,10 +60,10 @@ void	*ft_philo_lifecycle(void *philosopher);
 void	*ft_should_philo_die(void *data);
 
 // validation.c
-int		ft_validation(int argc, char **argv);
+int		ft_validation(int ac, char **av);
 
 // init.c
-int		ft_structure_init(t_args *options, int argc, char **argv);
+int		ft_structure_init(t_args *options, int ac, char **av);
 void	ft_init_philos(t_args *options, t_philos *philos, pthread_t *threads);
 
 // utils.c

@@ -12,19 +12,19 @@
 
 #include "philo.h"
 
-int	ft_structure_init(t_args *options, int argc, char **argv)
+int	ft_structure_init(t_args *options, int ac, char **av)
 {
-	options->philo_number = ft_atoi(argv[1]);
-	options->t_die = ft_atoi(argv[2]);
-	options->t_eat = ft_atoi(argv[3]);
-	options->t_sleep = ft_atoi(argv[3]);
+	options->philo_number = ft_atoi(av[1]);
+	options->t_die = ft_atoi(av[2]);
+	options->t_eat = ft_atoi(av[3]);
+	options->t_sleep = ft_atoi(av[3]);
 	options->f_is_dead = 0;
 	options->total_eat = 0;
 	options->t_start = ft_current_time();
-	if (argc == 5)
+	if (ac == 5)
 		options->nbr_of_eating = -1;
-	if (argc == 6)
-		options->nbr_of_eating = ft_atoi(argv[5]);
+	if (ac == 6)
+		options->nbr_of_eating = ft_atoi(av[5]);
 	options->forks = malloc((options->philo_number + 1)
 			* sizeof(pthread_mutex_t));
 	pthread_mutex_init(&options->lock_print, NULL);

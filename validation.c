@@ -24,31 +24,29 @@ void	ft_wrong_arg_num(void)
 	printf("\n-------------------\n");
 }
 
-int	ft_is_num(char **argv)
+int	ft_is_num(char **av)
 {
-	int	i;
-
-	i = 1;
-	while (argv[i])
+	if (ft_atoi(av[1]) < 1 || ft_atoi(av[1]) > 200)
 	{
-		if (!ft_atoi(argv[i]) || ft_atoi(argv[i]) < 1)
-		{
-			printf("Invalid argument: %s\n", argv[i]);
-			return (0);
-		}
-		i++;
+		printf("Wrong philosophers number \n");
+		return (0);
+	}
+	if (ft_atoi(av[2]) < 60 || ft_atoi(av[3]) < 60 || ft_atoi(av[4]) < 60)
+	{
+		printf("Wrong time \n");
+		return (0);
 	}
 	return (1);
 }
 
-int	ft_validation(int argc, char **argv)
+int	ft_validation(int ac, char **av)
 {
-	if (argc < 5 || argc > 6)
+	if (ac < 5 || ac > 6)
 	{
 		ft_wrong_arg_num();
 		return (0);
 	}
-	if (!ft_is_num(argv))
+	if (!ft_is_num(av))
 		return (0);
 	return (1);
 }
