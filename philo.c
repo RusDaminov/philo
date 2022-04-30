@@ -24,12 +24,12 @@ void	*ft_philo_lifecycle(void *philosopher)
 	{
 		pthread_mutex_lock(philo->left_fork);
 		pthread_mutex_lock(&philo->args->lock_print);
-		printf(MAG "%d: %d took a left fork\n",
+		printf(MAG "%d: %d took a left fork\n" RESET,
 			ft_time_passed(philo->args->t_start), philo->id);
 		pthread_mutex_unlock(&philo->args->lock_print);
 		pthread_mutex_lock(philo->right_fork);
 		pthread_mutex_lock(&philo->args->lock_print);
-		printf(MAG "%d: %d took a right fork\n",
+		printf(MAG "%d: %d took a right fork\n" RESET,
 			ft_time_passed(philo->args->t_start), philo->id);
 		pthread_mutex_unlock(&philo->args->lock_print);
 		ft_philo_eating(philo);
@@ -48,7 +48,7 @@ int	stop(t_philos *philo, t_args *data, int i)
 	{
 		data->f_is_dead = 1;
 		pthread_mutex_lock(&philo->args->lock_print);
-		printf(RED"%d: %d died\n",
+		printf(RED"%d: %d died\n" RESET,
 			ft_time_passed(philo->args->t_start), philo->id);
 		return (1);
 	}
@@ -101,6 +101,6 @@ int	main(int ac, char **av)
 	pthread_create(&threads[i], NULL, &ft_should_philo_die, (void *)(philos));
 	ft_join_clean(&s_options, philos, threads);
 	if (s_options.total_eat == s_options.philo_number)
-		printf(GRN"[ All the philosophers are ate ]\n");
+		printf(GRN "[ All the philosophers are ate ]\n" RESET);
 	return (0);
 }

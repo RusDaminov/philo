@@ -48,7 +48,7 @@ int	init_all(t_all *all, char **av)
 	all->time_sleep = ft_atoi(av[4]);
 	all->dead = 0;
 	if (all->philo_count < 1 || all->time_die < 60 || all->time_eat < 60
-		|| all->time_sleep < 60 || all->philo_count > 250)
+		|| all->time_sleep < 60 || all->philo_count > 200)
 		return (1);
 	if (av[5])
 	{

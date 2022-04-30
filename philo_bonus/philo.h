@@ -58,7 +58,7 @@ typedef struct s_all
 	sem_t			*meal_check;
 	sem_t			*forks;
 	sem_t			*message;
-	t_philo			philo[250];
+	t_philo			philo[200];
 }					t_all;
 
 // message.c

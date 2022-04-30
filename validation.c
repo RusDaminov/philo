@@ -14,14 +14,14 @@
 
 void	ft_wrong_arg_num(void)
 {
-	printf(MAG "-------------------");
-	printf(RED "\nWrong arguments number: ");
-	printf(RED "\n1: Number of philosophers");
-	printf(RED "\n2: Time to die");
-	printf(RED "\n3: Time to eat");
-	printf(RED "\n4: Time to sleep");
-	printf(RED "\n5: Number of eatings");
-	printf(MAG "\n-------------------\n" RESET);
+	printf(BLU "-------------------");
+	printf(GRN "\nWrong arguments number: ");
+	printf(GRN "\n1: Number of philosophers");
+	printf(GRN "\n2: Time to die");
+	printf(GRN "\n3: Time to eat");
+	printf(GRN "\n4: Time to sleep");
+	printf(GRN "\n5: Number of eatings");
+	printf(BLU "\n-------------------\n" RESET);
 }
 
 int	ft_is_num(char **av)
