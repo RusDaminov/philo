@@ -18,11 +18,11 @@ int	main(int ac, char **av)
 	int		ret;
 
 	if (ac != 5 && ac != 6)
-		return (error_message(RED "Wrong arguments number"));
+		return (error_message(RED "Wrong arguments number" RESET));
 	ret = init_all(&all, av);
 	if (ret)
 		return (error_manager(ret));
 	if (launcher(&all))
-		return (error_message(RED "Threads creating error"));
+		return (error_message(RED "Threads creating error" RESET));
 	return (0);
 }

@@ -18,11 +18,11 @@ void	philo_eats(t_philo *philo)
 
 	all = philo->all;
 	sem_wait(all->forks);
-	action_print(all, philo->name, MAG "has taken left fork");
+	action_print(all, philo->name, MAG "has taken left fork" RESET);
 	sem_wait(all->forks);
-	action_print(all, philo->name, MAG "has taken right fork");
+	action_print(all, philo->name, MAG "has taken right fork" RESET);
 	sem_wait(all->meal_check);
-	action_print(all, philo->name, YEL "is eating");
+	action_print(all, philo->name, YEL "is eating" RESET);
 	philo->last_meal = timestamp();
 	sem_post(all->meal_check);
 	smart_sleep(all->time_eat, all);
@@ -43,7 +43,7 @@ void	*death_checker(void *void_philo)
 		sem_wait(all->meal_check);
 		if (time_diff(philo->last_meal, timestamp()) > all->time_die)
 		{
-			action_print(all, philo->name, RED "dead");
+			action_print(all, philo->name, RED "dead" RESET);
 			all->dead = 1;
 			sem_wait(all->message);
 			exit(1);
@@ -74,9 +74,9 @@ void	p_process(void *void_philo)
 		philo_eats(philo);
 		if (philo->x_ate >= all->eat_count && all->eat_count != -1)
 			break ;
-		action_print(all, philo->name, BLU "is sleeping");
+		action_print(all, philo->name, BLU "is sleeping" RESET);
 		smart_sleep(all->time_sleep, all);
-		action_print(all, philo->name, GRN "is thinking");
+		action_print(all, philo->name, GRN "is thinking" RESET);
 	}
 	pthread_join(philo->death_check, NULL);
 	if (all->dead)

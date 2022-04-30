@@ -32,7 +32,7 @@ int	error_message(char *str)
 	len = 0;
 	while (str[len])
 		len++;
-	write(2, RED "Error", 7);
+	write(2, MAG "Error" RESET, 5);
 	write(2, str, len);
 	write(2, "\n", 1);
 	return (1);
@@ -41,8 +41,8 @@ int	error_message(char *str)
 int	error_manager(int error)
 {
 	if (error == 1)
-		return (error_message(RED "At least one wrong argument"));
+		return (error_message(RED "At least one wrong argument" RESET));
 	if (error == 2)
-		return (error_message(RED "Semaphore initialisation error"));
+		return (error_message(RED "Semaphore initialisation error" RESET));
 	return (1);
 }
