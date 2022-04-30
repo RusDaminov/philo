@@ -14,26 +14,26 @@
 
 void	ft_wrong_arg_num(void)
 {
-	printf("-------------------");
-	printf("\nWrong args num: ");
-	printf("\n1: Number of philosophers");
-	printf("\n2: Time to die");
-	printf("\n3: Time to eat");
-	printf("\n4: Time to sleep");
-	printf("\n5: Number of eatings");
-	printf("\n-------------------\n");
+	printf(MAG "-------------------");
+	printf(RED "\nWrong arguments number: ");
+	printf(RED "\n1: Number of philosophers");
+	printf(RED "\n2: Time to die");
+	printf(RED "\n3: Time to eat");
+	printf(RED "\n4: Time to sleep");
+	printf(RED "\n5: Number of eatings");
+	printf(MAG "\n-------------------\n" RESET);
 }
 
 int	ft_is_num(char **av)
 {
 	if (ft_atoi(av[1]) < 1 || ft_atoi(av[1]) > 200)
 	{
-		printf("Wrong philosophers number \n");
+		printf(RED "Wrong philosophers number \n" RESET);
 		return (0);
 	}
 	if (ft_atoi(av[2]) < 60 || ft_atoi(av[3]) < 60 || ft_atoi(av[4]) < 60)
 	{
-		printf("Wrong time \n");
+		printf(RED "Wrong time \n" RESET);
 		return (0);
 	}
 	return (1);

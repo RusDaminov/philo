@@ -17,7 +17,7 @@ void	ft_philo_eating(t_philos *philo)
 	if (philo->args->f_is_dead == 1)
 		return ;
 	pthread_mutex_lock(&philo->args->lock_print);
-	printf(YEL "%d: %d is eating\n",
+	printf(YEL "%d: %d is eating\n" RESET,
 		ft_time_passed(philo->args->t_start), philo->id);
 	pthread_mutex_unlock(&philo->args->lock_print);
 	philo->t_last_eated = ft_time_passed(philo->args->t_start);
@@ -30,7 +30,7 @@ void	ft_philo_sleeping(t_philos *philo)
 	if (philo->args->f_is_dead == 1)
 		return ;
 	pthread_mutex_lock(&philo->args->lock_print);
-	printf(BLU "%d: %d is sleeping\n",
+	printf(BLU "%d: %d is sleeping\n" RESET,
 		ft_time_passed(philo->args->t_start), philo->id);
 	pthread_mutex_unlock(&philo->args->lock_print);
 	ft_mysleep((int)philo->args->t_sleep);
@@ -41,7 +41,7 @@ void	ft_philos_thinking(t_philos	*philo)
 	if (philo->args->f_is_dead == 1)
 		return ;
 	pthread_mutex_lock(&philo->args->lock_print);
-	printf(RESET "%d: %d is thinking\n",
+	printf(RESET "%d: %d is thinking\n" RESET,
 		ft_time_passed(philo->args->t_start), philo->id);
 	pthread_mutex_unlock(&philo->args->lock_print);
 }
